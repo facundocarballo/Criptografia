@@ -43,22 +43,38 @@ state = [
     [64, 80, 182, 255],
 ]
 
+def matrix2bytes(matrix):
+    cadena = ""
+    for row in matrix:
+        for elem in row:
+            cadena += chr(elem)
+    return cadena
+
+
 # 251 en Hexa: FB
 def sub_bytes(s, sbox=s_box):
-    cadena = ""
+    i = 0
+    j = 0
     for row in s:
         for elem in row:
             coordinate = [*hex(elem)]
-            s_box_row = coordinate[2]
-            s_box_column = coordinate[3]
+            if len(coordinate) == 4:
+                s_box_row = coordinate[2]
+                s_box_column = coordinate[3]
+            else:
+                s_box_row = "0"
+                s_box_column = coordinate[2]
             fila = int(s_box_row, 16)
             columna = int(s_box_column, 16)
 
             hexa_inv = inv_s_box[(fila * 16) + columna]
-            cadena += chr(hexa_inv)
-    return cadena
+            s[i][j] = hexa_inv
+            j += 1
+        j = 0
+        i += 1
 
 
-print(sub_bytes(state, sbox=inv_s_box))
-# sub_bytes(state, sbox=inv_s_box)
+# 5- Confusing through Substitution
+sub_bytes(state, sbox=inv_s_box)
+print(matrix2bytes(state))
 

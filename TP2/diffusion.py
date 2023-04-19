@@ -56,11 +56,7 @@ def matrix2bytes(matrix):
             cadena += chr(elem)
     return cadena
 
-
-# matrix2bytes(inv_shift_rows(inv_mix_columns(state)))
-
-# print(inv_mix_columns(state))
-
+# 6- Diffusion through Permutation
 inv_mix_columns(state)
 inv_shift_rows(state)
 print(matrix2bytes(state))

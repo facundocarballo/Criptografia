@@ -36,17 +36,19 @@ def print_matrix(matrix):
             print(elem)
 
 def add_round_key(s, k):
-    # matrix = [[173, 129, 68, 82], [173, 129, 68, 82], [173, 129, 68, 82], [173, 129, 68, 82]]
-    cadena = ""
+    i = 0
+    j = 0
     for row_s, row_k in zip(s, k):
         for elem_s, elem_k  in zip(row_s, row_k):
-           cadena  += chr(elem_s ^ elem_k)
-    return cadena
+           s[i][j] = elem_s ^ elem_k
+           j += 1
+        j = 0
+        i += 1
 
     
+# 3- Structure of AES
+print(matrix2bytes(matrix))
 
-# print(matrix2bytes(matrix))
-
-# print(matrix2bytes(add_round_key(state, round_key)))
-
-print(add_round_key(state, round_key))
+# 4- Round Keys
+add_round_key(state, round_key)
+print(matrix2bytes(state))

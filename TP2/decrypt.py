@@ -96,28 +96,25 @@ def expand_key(master_key):
     return [key_columns[4*i : 4*(i+1)] for i in range(len(key_columns) // 4)]
 
 def sub_bytes(s, sbox=s_box):
-    row_c = 0
-    elem_c = 0
+    i = 0
+    j = 0
     for row in s:
         for elem in row:
             coordinate = [*hex(elem)]
-            # print(coordinate)
             if len(coordinate) == 4:
                 s_box_row = coordinate[2]
                 s_box_column = coordinate[3]
             else:
-                s_box_row = coordinate[2]
-                s_box_column = "0"
-            
+                s_box_row = "0"
+                s_box_column = coordinate[2]
             fila = int(s_box_row, 16)
             columna = int(s_box_column, 16)
 
             hexa_inv = inv_s_box[(fila * 16) + columna]
-            
-            s[row_c][elem_c] = hexa_inv
-            elem_c += 1
-        elem_c = 0
-        row_c += 1
+            s[i][j] = hexa_inv
+            j += 1
+        j = 0
+        i += 1
 
 def inv_shift_rows(s):
     s[1][1], s[2][1], s[3][1], s[0][1] = s[0][1], s[1][1], s[2][1], s[3][1]
@@ -152,44 +149,37 @@ def inv_mix_columns(s):
     mix_columns(s)
 
 def add_round_key(s, k):
-    cadena = ""
+    i = 0
+    j = 0
     for row_s, row_k in zip(s, k):
         for elem_s, elem_k  in zip(row_s, row_k):
-           cadena += chr(elem_s ^ elem_k)
-    return cadena
+           s[i][j] = elem_s ^ elem_k
+           j += 1
+        i += 1
+        j = 0
 
 def decrypt(key, ciphertext):
     round_keys = expand_key(key) # Remember to start from the last round key and work backwards through them when decrypting
-
+    
     # Convert ciphertext to state matrix
     matrix = bytes2matrix(ciphertext)
 
     # Initial add round key step
     add_round_key(matrix, round_keys[N_ROUNDS])
-    inv_shift_rows(matrix)
-    sub_bytes(matrix, sbox=inv_s_box)
 
-    print(matrix)
-    print("-----")
     for i in range(N_ROUNDS - 1, 0, -1):
-        add_round_key(matrix, round_keys[i])
-        inv_mix_columns(matrix)
         inv_shift_rows(matrix)
         sub_bytes(matrix, sbox=inv_s_box)
-        print(matrix)
-        print("-----")
+        add_round_key(matrix, round_keys[i])
+        inv_mix_columns(matrix)
         
     # Run final round (skips the InvMixColumns step)
-    add_round_key(matrix, round_keys[0])
     inv_shift_rows(matrix)
     sub_bytes(matrix, sbox=inv_s_box)
-    print(matrix)
-    print("-----")
+    add_round_key(matrix, round_keys[0])
 
     # Convert state matrix to plaintext
     return matrix2bytes(matrix)
 
-
+# Bringing It All Together
 print(decrypt(key, ciphertext))
-
-# decrypt(key, ciphertext=ciphertext)
