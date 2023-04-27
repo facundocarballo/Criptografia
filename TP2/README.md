@@ -1,8 +1,8 @@
 # TP2 - Criptografia | Matematica Aplicada
 
 Ejercicios resueltos en archivos:
-1. ***Falta agregar***
-2. ***Falta agregar***
+1. ***NO CODE***
+2. ***NO CODE***
 3. AES.py
 4. AES.py
 5. SBox.py
