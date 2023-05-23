@@ -1,0 +1,17 @@
+p = 857504083339712752489993810777 # Numero primo 1
+q = 1029224947942998075080348647219 # Numero primo 2
+N = 882564595536224140639625987659416029426239230804614613279163
+e = 65537
+PRIVATE_KEY = 121832886702415731577073962957377780195510499965398469843281
+CIPHER_TEXT = 77578995801157823671636298847186723593814843845525223303932
+
+# Obtenemos el Totient de N
+phi_n = (p-1)*(q-1)
+
+# Obtenemos la modular multiplication inverse del exponente
+mmi = pow(e, -1, phi_n)
+
+# Aplicamos la formula para descifrar un texto cifrado con RSA
+plain_text = pow(CIPHER_TEXT, PRIVATE_KEY, N)
+
+print(plain_text)
