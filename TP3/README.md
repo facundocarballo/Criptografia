@@ -35,6 +35,13 @@
     - N (es un numero obtenido con la multiplicacion de 30 numeros primos)
     - e
     - Texto cifrado
-12. 
+
+## Exponente Publico
+
+12. Descifrar un texto cifrado, teniendo estos datos:
+    - N (es un numero obtenido con la multiplicacion de M enteros)
+    - e = 1 (esto supuestamente lo hace mas facil)
+    - Texto cifrado
+13. 
 
  
