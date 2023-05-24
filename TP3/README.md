@@ -39,9 +39,12 @@
 ## Exponente Publico
 
 12. Descifrar un texto cifrado, teniendo estos datos:
-    - N (es un numero obtenido con la multiplicacion de M enteros)
+    - N (es un numero obtenido con la multiplicacion de M enteros primos)
     - e = 1 (esto supuestamente lo hace mas facil)
     - Texto cifrado
-13. 
+13. Descifrar un texto cifrado, teniendo estos datos:
+    - N (es un numero obtenido con la multiplicacion de M enteros primos)
+    - e = 3 (esto supuestamente lo hace mas facil)
+    - Texto Cifrado
 
  
