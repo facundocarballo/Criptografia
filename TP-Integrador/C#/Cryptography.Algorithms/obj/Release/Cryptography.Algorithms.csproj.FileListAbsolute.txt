@@ -1,0 +1,7 @@
+C:\Users\SOULIT-GABRIEL\Documents\Visual Studio 2017\Proyects\Cryptography.Algorithms\Cryptography.Algorithms\bin\Release\Cryptography.Algorithms.dll
+C:\Users\SOULIT-GABRIEL\Documents\Visual Studio 2017\Proyects\Cryptography.Algorithms\Cryptography.Algorithms\bin\Release\Cryptography.Algorithms.pdb
+C:\Users\SOULIT-GABRIEL\Documents\Visual Studio 2017\Proyects\Cryptography.Algorithms\Cryptography.Algorithms\bin\Release\System.Net.Http.dll
+C:\Users\SOULIT-GABRIEL\Documents\Visual Studio 2017\Proyects\Cryptography.Algorithms\Cryptography.Algorithms\obj\Release\Cryptography.Algorithms.csproj.CoreCompileInputs.cache
+C:\Users\SOULIT-GABRIEL\Documents\Visual Studio 2017\Proyects\Cryptography.Algorithms\Cryptography.Algorithms\obj\Release\Cryptography.Algorithms.csproj.CopyComplete
+C:\Users\SOULIT-GABRIEL\Documents\Visual Studio 2017\Proyects\Cryptography.Algorithms\Cryptography.Algorithms\obj\Release\Cryptography.Algorithms.dll
+C:\Users\SOULIT-GABRIEL\Documents\Visual Studio 2017\Proyects\Cryptography.Algorithms\Cryptography.Algorithms\obj\Release\Cryptography.Algorithms.pdb
